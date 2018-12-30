@@ -1,5 +1,5 @@
 {
-  "1" : { "page" : "Home_Index", "url" : [ "/", "/home", "/index.php", "/profile/(.*)/" ] },
-  "2" : { "page" : "Test_Index", "url" : [ "/test" ] },
-  "3" : { "page" : "Error_Index", "url" : [ "/error" ] }
+  "1" : { "page" : "Home_Index", "url" : [ "/", "/home", "/index.php", "/profile/(.*)/" ], "method" : "get" },
+  "2" : { "page" : "Test_Index", "url" : [ "/test" ], "method" : "get" },
+  "3" : { "page" : "Error_Index", "url" : [ "/error" ], "method" : "post" }
 }

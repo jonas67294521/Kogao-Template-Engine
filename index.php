@@ -15,7 +15,7 @@ foreach($route->RouteAdapter as $key => $item){
     $route->add($item["url"], function() use($view, $languageArray, $item){
         $initialize = new $item["page"]( $view, $languageArray, func_get_args() );
         $initialize->onExecute();
-    });
+    }, $item["method"]);
 
 }
 
