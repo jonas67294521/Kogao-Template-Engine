@@ -10,23 +10,14 @@ require('controller/language.php');
 require("controller/route.php");
 $route = new Route();
 
-/**
- * @page Home
- */
-$route->add(["/", "/index.php", "/home", "/profile/(.*)/"], function($id) use($view, $languageArray){
-    $initialize = new Home_Index( $view, $languageArray, [
-        "user_id" => $id
-    ] );
-    $initialize->onExecute();
-});
+foreach($route->RouteAdapter as $key => $item){
 
-/**
- * @page test
- */
-$route->add(["/test"], function() use($view, $languageArray){
-    $initialize = new Test_Index($view, $languageArray, []);
-    $initialize->onExecute();
-});
+    $route->add($item["url"], function() use($view, $languageArray, $item){
+        $initialize = new $item["page"]( $view, $languageArray, func_get_args() );
+        $initialize->onExecute();
+    });
+
+}
 
 /**
  * @page Error

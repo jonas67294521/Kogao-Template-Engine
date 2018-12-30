@@ -6,9 +6,20 @@
 
 class Route{
 
+    var $RouteAdapter;
+
     private $routes = [];
     private $pathNotFound = null;
     private $methodNotAllowed = null;
+
+    public function __construct()
+    {
+        $Router = file_get_contents(".router");
+        $Router = json_decode($Router,1);
+
+        $this->RouteAdapter = $Router;
+
+    }
 
     public function add($expression, $function, $method = 'get'){
 

@@ -22,7 +22,6 @@
     <?php if( $js_jQuery ){ ?><script type="text/javascript" src="view/assets/js/jquery.js"></script><?php } ?>
     <?php if( $js_jRange ){ ?><script type="text/javascript" src="view/assets/js/jrange.js"></script><?php } ?>
     <?php if( $js_functions ){ ?><script type="text/javascript" src="view/assets/js/functions.js"></script><?php } ?>
-    <script type="text/javascript" src="view/assets/js/select.js"></script>
 
     <!-- @bigpipe -->
     <script type="text/javascript" src="view/assets/js/bigpipe/index.js"></script>

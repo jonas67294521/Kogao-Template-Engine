@@ -36,7 +36,7 @@ define("facebook_app_id", "730606926996290");
 
 #@ Javascript Modules
 define("js_jQuery", 1);
-define("js_jrange", 1);
+define("js_jrange", 0);
 define("js_functions", 0);
 
 #@ Meta Tags
