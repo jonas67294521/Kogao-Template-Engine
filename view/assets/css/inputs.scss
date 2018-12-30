@@ -1,0 +1,33 @@
+@mixin border-radius($response){
+  border-radius: $response;
+  -moz-border-radius: $response;
+  -webkit-box-sizing: $response;
+}
+
+.FooterLayout{
+  float:left;
+  width: 100%;
+
+}
+
+input[type=text]{
+  &.Search-Input{
+    background:#fff url('view/assets/img/icons8_Search_50px_1.png') right 10px center no-repeat;
+    background-size: 20px;
+    padding-right: 40px;
+  }
+  &.SelectorRight{
+    @include border-radius(6px 0 0 6px);
+  }
+  border: 1px solid rgba(0, 0, 0, .15);
+  font:{
+    size: 14px;
+  }
+  @include border-radius(6px);
+  padding: 8.5px 14px;
+  transition: all 0.2s ease;
+  &:hover, &:focus{
+    border: 1px solid #2c67e7;
+    @include box-shadow(0 0 5px rgba(0,0,0,.05));
+  }
+}

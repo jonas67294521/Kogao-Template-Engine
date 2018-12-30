@@ -1,0 +1,100 @@
+@mixin border-radius($response){
+  border-radius: $response;
+  -moz-border-radius: $response;
+  -webkit-box-sizing: $response;
+}
+
+.SelectBoxListener{
+  position: absolute;
+  display: none;
+  padding: 0;
+  @include border-radius(10px);
+  @include box-shadow(0 0 10px rgba(0,0,0,.05));
+  border: 1px solid #ccc;
+  background: #fff;
+  margin: 5px 0 0 0;
+  &:after, &:before {
+    bottom: 100%;
+    left: 30px;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+
+  &:after {
+    border-color: rgba(255, 255, 255, 0);
+    border-bottom-color: #fff;
+    border-width: 8px;
+    margin-left: -8px;
+  }
+  &:before {
+    border-color: rgba(204, 204, 204, 0);
+    border-bottom-color: #ccc;
+    border-width: 9px;
+    margin-left: -9px;
+  }
+}
+
+ul {
+  &.SelectBox{
+    position: relative;
+    padding: 10px 0;
+    max-height: 150px;
+    overflow: auto;
+    @include border-radius(9px);
+    margin: 0;
+    li{
+      list-style: none;
+      float:left;
+      padding: 6px 20px;
+      width: 100%;
+      font:{
+        size: 14px;
+      }
+      transition: all 0.2s ease;
+      &:hover{
+        cursor: pointer;
+        background: #f9f9f9;
+        color: #2c67e7;
+      }
+    }
+  }
+  &.Select {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    &.TextInputLeft{
+      li{
+        border-left: 0;
+        @include border-radius(0 6px 6px 0);
+      }
+    }
+    li{
+      &.FirstInput{
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+      display: inline-block;
+      padding: 8.5px 40px 8.5px 15px;
+      background: #fff url('view/assets/img/drop-down-smooth.png') right 10px center no-repeat;
+      border: 1px solid rgba(0,0,0,.15);
+      @include border-radius(6px);
+      transition: all 0.2s ease;
+      cursor: pointer;
+      color: #666;
+      font:{
+        size: 14px;
+      }
+      &:hover{
+        background: #fff url('view/assets/img/drop-down.png') right 10px center no-repeat;
+        color: #000;
+        border: 1px solid #2c67e7;
+        @include box-shadow(0 0 5px rgba(0,0,0,.05));
+      }
+    }
+  }
+}

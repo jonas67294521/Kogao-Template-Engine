@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <base href="{$base_dir}">
+
+    <if case="responsive_view == true">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta name="theme-color" content="{$theme_color}" />
+    </if>
+
+    <meta charset="UTF-8">
+    <title>{$title}</title>
+
+    <meta name="description" content="{$meta_description}">
+    <meta name="keywords" content="{$meta_keywords}">
+
+    <meta http-equiv="content-Language" content="de" />
+    <meta name="robots" content="index,follow" />
+
+    <link rel="stylesheet" href="view.php?p=style.scss&v={$version_code}#" media="screen">
+    <if case="$js_jQuery"><script type="text/javascript" src="view/assets/js/jquery.js#"></script></if>
+    <if case="$js_jRange"><script type="text/javascript" src="view/assets/js/jrange.js#"></script></if>
+    <if case="$js_functions"><script type="text/javascript" src="view/assets/js/functions.js#"></script></if>
+    <script type="text/javascript" src="view/assets/js/select.js#"></script>
+
+    <!-- @bigpipe -->
+    <script type="text/javascript" src="view/assets/js/bigpipe/index.js#"></script>
+
+</head>
+<body>

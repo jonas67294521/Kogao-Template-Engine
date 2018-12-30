@@ -1,0 +1,62 @@
+/*
+ * KogaoSoftware Inc.
+ * How SASS work: http://sass-lang.com/documentation/file.SASS_REFERENCE.html
+ */
+
+$default_font : "Open Sans";
+
+//@loading default font: Open Sans
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:300;src:url(view/assets/fonts/open-sans-v15-latin_cyrillic_greek-300.eot);src:local('Open Sans Light'),local('OpenSans-Light'),url(view/assets/fonts/open-sans-v15-latin_cyrillic_greek-300.eot?#iefix) format('embedded-opentype'),url(view/assets/fonts/open-sans-v15-latin_cyrillic_greek-300.woff2) format('woff2'),url(view/assets/fonts/open-sans-v15-latin_cyrillic_greek-300.woff) format('woff'),url(view/assets/fonts/open-sans-v15-latin_cyrillic_greek-300.ttf) format('truetype'),url(view/assets/fonts/open-sans-v15-latin_cyrillic_greek-300.svg#OpenSans) format('svg')}@font-face{font-family:'Open Sans';font-style:normal;font-weight:400;src:url(view/assets/fonts/open-sans-v15-latin_cyrillic_greek-regular.eot);src:local('Open Sans Regular'),local('OpenSans-Regular'),url(view/assets/fonts/open-sans-v15-latin_cyrillic_greek-regular.eot?#iefix) format('embedded-opentype'),url(view/assets/fonts/open-sans-v15-latin_cyrillic_greek-regular.woff2) format('woff2'),url(view/assets/fonts/open-sans-v15-latin_cyrillic_greek-regular.woff) format('woff'),url(view/assets/fonts/open-sans-v15-latin_cyrillic_greek-regular.ttf) format('truetype'),url(view/assets/fonts/open-sans-v15-latin_cyrillic_greek-regular.svg#OpenSans) format('svg')}@font-face{font-family:'Open Sans';font-style:normal;font-weight:600;src:url(view/assets/fonts/open-sans-v15-latin_cyrillic_greek-600.eot);src:local('Open Sans SemiBold'),local('OpenSans-SemiBold'),url(view/assets/fonts/open-sans-v15-latin_cyrillic_greek-600.eot?#iefix) format('embedded-opentype'),url(view/assets/fonts/open-sans-v15-latin_cyrillic_greek-600.woff2) format('woff2'),url(view/assets/fonts/open-sans-v15-latin_cyrillic_greek-600.woff) format('woff'),url(view/assets/fonts/open-sans-v15-latin_cyrillic_greek-600.ttf) format('truetype'),url(view/assets/fonts/open-sans-v15-latin_cyrillic_greek-600.svg#OpenSans) format('svg')}@font-face{font-family:'Open Sans';font-style:normal;font-weight:700;src:url(view/assets/fonts/open-sans-v15-latin_cyrillic_greek-700.eot);src:local('Open Sans Bold'),local('OpenSans-Bold'),url(view/assets/fonts/open-sans-v15-latin_cyrillic_greek-700.eot?#iefix) format('embedded-opentype'),url(view/assets/fonts/open-sans-v15-latin_cyrillic_greek-700.woff2) format('woff2'),url(view/assets/fonts/open-sans-v15-latin_cyrillic_greek-700.woff) format('woff'),url(view/assets/fonts/open-sans-v15-latin_cyrillic_greek-700.ttf) format('truetype'),url(view/assets/fonts/open-sans-v15-latin_cyrillic_greek-700.svg#OpenSans) format('svg')}@font-face{font-family:'Open Sans';font-style:normal;font-weight:800;src:url(view/assets/fonts/open-sans-v15-latin_cyrillic_greek-800.eot);src:local('Open Sans ExtraBold'),local('OpenSans-ExtraBold'),url(view/assets/fonts/open-sans-v15-latin_cyrillic_greek-800.eot?#iefix) format('embedded-opentype'),url(view/assets/fonts/open-sans-v15-latin_cyrillic_greek-800.woff2) format('woff2'),url(view/assets/fonts/open-sans-v15-latin_cyrillic_greek-800.woff) format('woff'),url(view/assets/fonts/open-sans-v15-latin_cyrillic_greek-800.ttf) format('truetype'),url(view/assets/fonts/open-sans-v15-latin_cyrillic_greek-800.svg#OpenSans) format('svg')}
+
+*{
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  font:{
+    family: $default_font, Arial, sans-serif;
+  }
+}
+
+@mixin border-radius($response){
+  border-radius: $response;
+  -moz-border-radius: $response;
+  -webkit-box-sizing: $response;
+}
+
+@mixin box-shadow($response){
+  box-shadow: $response;
+  -moz-box-shadow: $response;
+  -webkit-box-shadow: $response;
+}
+
+@mixin disableSelect(){
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@mixin wordBreak(){
+  word-break: normal;
+}
+
+@mixin truncate(){
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+body{
+  margin: 30px;
+}
+
+//@range input
+@import 'view/assets/css/range.scss';
+@import 'view/assets/css/jrange.scss';
+@import 'view/assets/css/select_input.scss';
+@import 'view/assets/css/inputs.scss';
+@import 'view/assets/css/radio.scss';
+
+
+/* @add->scrollBar */
+.ps-container{-ms-touch-action:none;touch-action:none;overflow:hidden !important;-ms-overflow-style:none}@supports (-ms-overflow-style: none){.ps-container{overflow:auto !important}}@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none){.ps-container{overflow:auto !important}}.ps-container.ps-active-x>.ps-scrollbar-x-rail,.ps-container.ps-active-y>.ps-scrollbar-y-rail{display:block;background-color:transparent}.ps-container.ps-in-scrolling{pointer-events:none}.ps-container.ps-in-scrolling.ps-x>.ps-scrollbar-x-rail{background-color:#eee;opacity:0.9}.ps-container.ps-in-scrolling.ps-x>.ps-scrollbar-x-rail>.ps-scrollbar-x{background-color:#999}.ps-container.ps-in-scrolling.ps-y>.ps-scrollbar-y-rail{background-color:#eee;opacity:0.9}.ps-container.ps-in-scrolling.ps-y>.ps-scrollbar-y-rail>.ps-scrollbar-y{background-color:#999}.ps-container>.ps-scrollbar-x-rail{display:none;position:absolute;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;opacity:0;-webkit-transition:background-color .2s linear, opacity .2s linear;-moz-transition:background-color .2s linear, opacity .2s linear;-o-transition:background-color .2s linear, opacity .2s linear;transition:background-color .2s linear, opacity .2s linear;bottom:3px;height:8px}.ps-container>.ps-scrollbar-x-rail>.ps-scrollbar-x{position:absolute;background-color:#aaa;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;-webkit-transition:background-color .2s linear;-moz-transition:background-color .2s linear;-o-transition:background-color .2s linear;transition:background-color .2s linear;bottom:0;height:8px}.ps-container>.ps-scrollbar-y-rail{display:none;position:absolute;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;opacity:0;-webkit-transition:background-color .2s linear, opacity .2s linear;-moz-transition:background-color .2s linear, opacity .2s linear;-o-transition:background-color .2s linear, opacity .2s linear;transition:background-color .2s linear, opacity .2s linear;right:3px;width:8px}.ps-container>.ps-scrollbar-y-rail>.ps-scrollbar-y{position:absolute;background-color:#aaa;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;-webkit-transition:background-color .2s linear;-moz-transition:background-color .2s linear;-o-transition:background-color .2s linear;transition:background-color .2s linear;right:0;width:8px}.ps-container:hover.ps-in-scrolling{pointer-events:none}.ps-container:hover.ps-in-scrolling.ps-x>.ps-scrollbar-x-rail{background-color:#eee;opacity:0.9}.ps-container:hover.ps-in-scrolling.ps-x>.ps-scrollbar-x-rail>.ps-scrollbar-x{background-color:#999}.ps-container:hover.ps-in-scrolling.ps-y>.ps-scrollbar-y-rail{background-color:#eee;opacity:0.9}.ps-container:hover.ps-in-scrolling.ps-y>.ps-scrollbar-y-rail>.ps-scrollbar-y{background-color:#999}.ps-container:hover>.ps-scrollbar-x-rail,.ps-container:hover>.ps-scrollbar-y-rail{opacity:0.6}.ps-container:hover>.ps-scrollbar-x-rail:hover{background-color:#eee;opacity:0.9}.ps-container:hover>.ps-scrollbar-x-rail:hover>.ps-scrollbar-x{background-color:#999}.ps-container:hover>.ps-scrollbar-y-rail:hover{background-color:#eee;opacity:0.9}.ps-container:hover>.ps-scrollbar-y-rail:hover>.ps-scrollbar-y{background-color:#999}

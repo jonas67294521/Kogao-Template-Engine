@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="{$html_language}">
+<head>
+    {if="responsive_view == true"}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="{$theme_color}" />
+    {/if}
+    <meta charset="UTF-8">
+    <title>{$title}</title>
+
+    <meta name="description" content="{$meta_description}">
+    <meta name="keywords" content="{$meta_keywords}">
+
+    <meta http-equiv="content-Language" content="de" />
+    <meta name="robots" content="index,follow" />
+
+    {if="facebook == true"}<!-- @facebook -->
+    <meta property="og:url" content="http://my-facebook-url.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{$title}" />
+    <meta property="og:description" content="{$meta_description}" />
+    <meta property="og:image" content="http://my-facebook-url.com/1200x630.jpg" />
+    {/if}
+
+    <link rel="stylesheet" href="view.php?p=style.scss&v={$version_code}#" media="screen">
+    {if="$js_jQuery == true"}<script type="text/javascript" src="view/assets/js/jquery.js#"></script>{/if}{if="$js_jRange == true"}<script type="text/javascript" src="view/assets/js/jrange.js#"></script>{/if}{if="$js_functions == true"}<script type="text/javascript" src="view/assets/js/functions.js#"></script>{/if}<script type="text/javascript" src="view/assets/js/select.js#"></script>
+
+</head>
+<body>
+
+<select theme="true">
+    <option>asd</option>
+</select>
+
+Test List Array:<br>
+
+Datum: <date time="125454355354"></date><br>
+
+<br>
+
+<debug></debug>
+
+<function call="number_format(1000,2,',','.')">
+
+    <loop id="$arrayListName">
+        {$value.name}<br>
+        {$value.buy}
+        <br>
+        Nummer: <Number int="$value.buy"></Number><br>
+        <loop id="$value.orders">
+            {$value.name}
+        </loop>
+    </loop>
+
+
+    <br><br>
+    Language String Test: {$language_home_title}<br>
+    Next Language String: Test without [VAR]
+
+    {include="modules/facebook"}
+
+    <br>
+    <input type="range" id="Range" min="1" max="1000">
+    <div id="RangeResult">1</div>
+    <script>
+        jQuery("input[type=range]").on("change", function(){
+            jQuery("#RangeResult").text(jQuery(this).val());
+        });
+    </script>
+    <a href="javascript:void(0)" onclick="RangeDown('Range', 50)">Runter</a>
+    <a href="javascript:void(0)" onclick="RangeUp('Range', 50)">Hoch</a><br><br>
+
+    <input type="hidden" class="single-slider" value="50" />
+    <script>
+        InputRange({
+            "id" : "single-slider",
+            "from" : 0,
+            "to" : 100,
+            "width" : 400,
+            "format" : "%s €",
+            "label" : true
+        });
+        InputRangeUpdate({
+            "id" : "single-slider",
+            "function" : "setValue", //{setValue,updateRange}
+            "value" : "70"
+        });
+    </script>
+    <br><br>
+    <input type="hidden" class="range-slider" value="50" />
+    <script>
+        $('.range-slider').jRange({
+            from: 0,
+            to: 100,
+            step: 1,
+            scale: [0,25,50,75,100],
+            format: '%s',
+            width: 300,
+            showLabels: true,
+            isRange : true
+        });
+
+        KogaoTpl.SetRange();
+
+    </script><br><br>
+
+    <span class="Chart1"></span>
+    <script>
+        //Sparkline
+        KogaoTpl.SetSparkLine("Chart1", {
+            "size" : "160x50",
+            "data" : "2,4,5,6,10,7,8,5,7,7,11,8,6,9,11,9,13,14,12,16",
+            "background" : "fff",
+            "lineColor" : "5bb763",
+            "fillColor" : "d5f7d8"
+        });
+
+        //Number_Format
+        document.write(
+                KogaoTpl.number_format("39000.9900")
+        );
+        document.write(
+                KogaoTpl.strlen("Hallo wie gehts!")
+        );
+        document.write(
+                KogaoTpl.str_replace("wie", "wann", "Hallo wie gehts?")
+        );
+    </script>
+
+    <br><br>
+    <div style="float:left; padding-left: 10px;">
+        <input type="text" class="SelectorRight" placeholder="Placeholder">
+    </div>
+    <div style="float:left;">
+        <div id="TestSelector">
+            <select name="TestSelector">
+                <option value="1">Test 1</option>
+                <option value="2">Test 2</option>
+                <option value="45">Test 10</option>
+                <option value="60">Facebook-Aktie sunkt um 40$ pro Aktie</option>
+                <option value="60">Facebook-Aktie sunkt um 40$ pro Aktie</option>
+                <option value="60">Facebook-Aktie sunkt um 40$ pro Aktie</option>
+            </select>
+        </div>
+    </div>
+    <div style="float:left; padding-left: 10px;">
+        <input type="text" class="Search-Input" placeholder="Placeholder">
+    </div>
+
+    <script>
+        KogaoTpl.SetSelector("TestSelector", {
+            "width" : "250px",
+            "list_width" : "250px",
+            "TextInputLeft" : true,
+            "Value" : "1"
+        });
+    </script>
+
+    <div style="float:left; clear: both">
+        <div id="gender_men"><script>KogaoTpl.Radio('gender_men', 'Männlich');</script></div>
+        <div id="gender_woman"><script>KogaoTpl.Radio('gender_woman', 'Weiblich');</script></div>
+    </div>
+    <div style="float:left; clear: both">
+        <div id="checkbox_text"><script>KogaoTpl.Checkbox('checkbox_text', 'Check mich bitte ab!');</script></div>
+    </div>
+
+    <script>
+        jQuery("body").css({
+            "background" : "#f2f2f2"
+        });
+        jQuery(document).ready(function(){
+            $("select[theme=true]").selectOrDie({ size: 5, customClass : "theme" });
+        });
+    </script>
+
+</body>
+</html>

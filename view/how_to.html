@@ -1,0 +1,59 @@
+<!--
+    Basic Tutorials
+ -->
+<!--
+    @debug
+    @info Gibt alle ins Template gesteuerte Elemente aus
+-->
+<debug></debug>
+
+<!--
+    @if elseif else
+    @info Umgang mit Conditional Statements
+-->
+<if case="1 == 1">Richtig</if>
+
+<if case="2 == 1">
+    Falsch
+    <else>Richtig</else>
+</if>
+
+<if case="2 == 1">
+    Falsch
+    <elseif case="3 == 1">Falsch</elseif>
+    <else>Richtig</else>
+</if>
+
+<!--
+    @number
+    @info Ausgabe Nummer in EUR Format
+-->
+<number int="(1950.99)"></number>
+
+<!--
+    @date
+    @info UNIX_TIMESTAMP in Datum-Format (dd-mm-yyyy)
+-->
+<date time="1546186491"></date>
+
+<!--
+    @loop
+    @info Array Schleife ausgeben
+    @_ $array ( [ ["name" => "test"], ["name" => "test_2"] ] )
+-->
+<loop id="$array">
+    {$key} {$value.name}
+</loop>
+
+<!--
+    @bigpipe
+    @info https://de-de.facebook.com/notes/facebook-engineering/bigpipe-pipelining-web-pages-for-high-performance/389414033919/
+-->
+<bigpipe name="layout_name" js="1.js,2.js" css="1.css,2.css,view.php?p=style.scss" content="Hi"></bigpipe>
+
+<!--
+    @function
+    @info Function verwenden (PHP)
+    @info Function sind auch innerhalb Conditional Statements möglich
+-->
+<function call="str_replace('Hi', 'Hallo', 'Hi Franky!')"></function>
