@@ -4,9 +4,9 @@
  * <www.kogaoscript.com>
  */
 
-class Home_Index extends Database{
+class BrowserSupport_Index extends Database{
 
-    var $template = "page/home/index";
+    var $template = "page/browsersupport/index";
 
     /**
      * @var string
@@ -46,10 +46,10 @@ class Home_Index extends Database{
             "meta_keywords"     => $this->page_keywords,
             "html_language"     => $this->page_language,
             "facebook_app_id"   => facebook_app_id,
+            "internet_explorer" => $this->event->isInternetExplorer(),
             "js_jRange"         => js_jrange,
             "js_jQuery"         => js_jQuery,
             "js_functions"      => js_functions,
-            "internet_explorer" => $this->event->isInternetExplorer(),
             "is_login"          => _Cookie("login"),
             "is_login_field_1"  => _Cookie("login_1"),
             "is_login_field_2"  => _Cookie("login_2"),

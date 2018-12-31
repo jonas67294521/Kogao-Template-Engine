@@ -28,3 +28,17 @@
 
 </head>
 <body>
+
+<if case="$internet_explorer == true">
+    <div class="InternetExplorerLayout">
+        <div class="InternetExplorerLayoutInner">
+            <span><img src="view/assets/img/ie_support.png#"></span>
+            <span>
+                <b>Bitte beachten Sie, dass <function call="ucfirst($meta_keywords)"></function> Internet Explorer nicht mehr unterstützt.</b><br>
+                Wir empfehlen ein Upgrade auf die neuesten Versionen von <a href="https://www.microsoft.com/en-us/windows/microsoft-edge" target="_blank">Microsoft Edge</a>, <a href="https://chrome.google.com/" target="_blank">Google Chrome</a> oder <a href="https://mozilla.org/firefox/" target="_blank">Firefox</a>.
+            </span>
+            <span><a href="supported-browsers#"><div class="Button">Mehr dazu</div></a></span>
+            <span><div class="Button">Ignorieren</div></span>
+        </div>
+    </div>
+</if>

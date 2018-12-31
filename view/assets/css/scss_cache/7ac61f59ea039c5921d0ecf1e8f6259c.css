@@ -1,0 +1,3 @@
+/* SASS v0.0.12 on Mon, 31 Dec 2018 01:06:50 +0100 (0.0063s) */
+
+.BrowserLayout{float:left;width:100%;padding-top:60px;}.BrowserLayout .BrowserLayoutInner{position:relative;margin:0 auto;width:980px;}.BrowserLayout .BrowserLayoutInner .BrowserLayoutInnerContent{float:left;width:100%;padding:20px 0;}.BrowserLayout .BrowserLayoutInner .BrowserLayoutInnerTitle{float:left;width:100%;padding:40px 0 20px 0;border-bottom:1px solid #e2e2e2;font-size:24px;font-weight:600;}@media screen and (max-width:970px){.BrowserLayout .BrowserLayoutInner{width:100%;padding:0 20px;}}
