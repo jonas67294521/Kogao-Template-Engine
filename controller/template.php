@@ -197,6 +197,7 @@ class RainTPL{
 
             //Functions
             'function'      => '(\<function call="[^"]*"\>)',
+            'function_end'  => '(\<\/function\>)',
             'function'		=> '(\<function call="(\w*?)(?:.*?)"\>)',
 
             'number'        => '(\<number int="(\w*?)(?:.*?)"\>)',
@@ -223,6 +224,9 @@ class RainTPL{
             'ignore'        => '(\{ignore\}|\{\*)',
             'ignore_close' 	=> '(\{\/ignore\}|\*\})',
             'include'       => '(\{include="[^"]*"(?: cache="[^"]*")?\})',
+
+            'include_html'  => '(\<include(?: file){0,1}="[^"]*"(?: cache="[^"]*")?\>)',
+            'include_end'   => '(\<\/include\>)',
         ];
 
         $tag_regexp = "/" . join( "|", $tag_regexp ) . "/";
@@ -331,7 +335,50 @@ class RainTPL{
                     }
                 }
             }
+            //included tag html
+            elseif( preg_match( '/\<include(?: file){0,1}="([^"]*)"(?: cache="([^"]*)"){0,1}\>/', $html, $code ) ){
+                if (preg_match("/http/", $code[1])) {
+                    $content = file_get_contents($code[1]);
+                    $compiled_code .= $content;
+                } else {
+                    //variables substitution
+                    $include_var = $this->var_replace( $code[ 1 ], $left_delimiter = null, $right_delimiter = null, $php_left_delimiter = '".' , $php_right_delimiter = '."', $loop_level );
 
+                    //get the folder of the actual template
+                    $actual_folder = substr( $this->tpl['template_directory'], strlen(self::$tpl_dir) );
+
+                    //get the included template
+                    $include_template = $actual_folder . $include_var;
+
+                    // reduce the path
+                    $include_template = $this->reduce_path( $include_template );
+
+                    // if the cache is active
+                    if( isset($code[ 2 ]) ){
+
+                        //include
+                        $compiled_code .= '<?php $tpl = new '.get_called_class().';' .
+                            'if( $cache = $tpl->cache( "'.$include_template.'" ) )' .
+                            '	echo $cache;' .
+                            'else{' .
+                            '$tpl->assign( $this->var );' .
+                            ( !$loop_level ? null : '$tpl->assign( "key", $key'.$loop_level.' ); $tpl->assign( "value", $value'.$loop_level.' );' ).
+                            '$tpl->draw( "'.$include_template.'" );'.
+                            '}' .
+                            '?>';
+
+                    }
+                    else{
+                        //include
+                        $compiled_code .= '<?php $tpl = new '.get_called_class().';' .
+                            '$tpl->assign( $this->var );' .
+                            ( !$loop_level ? null : '$tpl->assign( "key", $key'.$loop_level.' ); $tpl->assign( "value", $value'.$loop_level.' );' ).
+                            '$tpl->draw( "'.$include_template.'" );'.
+                            '?>';
+
+                    }
+                }
+            }
             //loop
             elseif( preg_match( '/\<loop(?: name){0,1} id="\${0,1}([^"]*)"\>/', $html, $code ) ){
 
@@ -479,8 +526,10 @@ class RainTPL{
                 $compiled_code .=   '<?php }else{ ?>';
             }
 
-            //BigPipe Close
+            //Close Tags
             elseif( strpos( $html, '</bigpipe>' ) !== FALSE ) {}
+            elseif( strpos( $html, '</function>' ) !== FALSE ) {}
+            elseif( strpos( $html, '</include>' ) !== FALSE ) {}
 
             //close if tag > new
             elseif( strpos( $html, '</if>' ) !== FALSE ) {

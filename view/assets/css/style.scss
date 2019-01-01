@@ -60,6 +60,8 @@ a{
   }
 }
 
+div[id^="id_"]{ display: none !important; }
+
 
 //@range input
 @import 'view/assets/css/range.scss';

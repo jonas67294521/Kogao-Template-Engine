@@ -43,7 +43,7 @@ spl_autoload_register(function ($requireClass){
 
         // Template
         mkdir("view/page/" . dirname($requireClass));
-        file_put_contents("view/page/" . dirname($requireClass) . "/index.html", '{include="../header"}<bigpipe id="'.dirname($requireClass).'_index" css="" js=""></bigpipe>{include="../footer"}', FILE_APPEND || LOCK_EX);
+        file_put_contents("view/page/" . dirname($requireClass) . "/index.html", '<include file="../header"></include><bigpipe id="'.dirname($requireClass).'_index" css="" js=""></bigpipe><include file="../footer"></include>', FILE_APPEND || LOCK_EX);
     }
 
     if( !file_exists($requireClassModal) ) {
