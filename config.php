@@ -18,7 +18,7 @@ ini_set("display_errors", 0);
 define("js_functions", 1);
 
 #@ database config
-define("database_used", true);
+define("database_used", false);
 define("database_host", 'localhost');
 define("database_user", 'root');
 define("database_pass", '');
