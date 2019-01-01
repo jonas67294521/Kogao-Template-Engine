@@ -14,6 +14,15 @@ setlocale(LC_TIME, "de_DE.UTF-8");
 error_reporting(E_ERROR);
 ini_set("display_errors", 0);
 
+#@ Base Dir
+$protocol = "http://";
+$sub_directory = "kogao_template/";
+
+$base_href = $protocol . $_SERVER["SERVER_NAME"] . "/" . $sub_directory;
+define("base_href", $base_href);
+define("sub_folder", $sub_directory);
+define("http_protocol", $protocol);
+
 #@ compressed js Mode
 define("js_functions", 1);
 
@@ -50,10 +59,7 @@ define("theme_color", "#000000");
 define("scss_formatter", "scss_formatter_compressed");
 define("scss_folder", "view/assets/css");
 
-#@ global config
-define("sub_folder", "");
-define("http_protocol", "http://");
-
+#@ Super Functions
 function _Replace($e){ return str_replace(array(chr(0x27), chr(0xbf)), array("", ""), $e); }
 function _Get($e){ return (!empty($_GET[$e])) ? _Replace(strip_tags(htmlspecialchars(addslashes($_GET[$e])))) : ""; }
 function _Post($e){ return (!empty($_POST[$e])) ? _Replace(strip_tags(htmlspecialchars(addslashes($_POST[$e])))) : ""; }

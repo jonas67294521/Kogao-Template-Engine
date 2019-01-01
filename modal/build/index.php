@@ -32,13 +32,7 @@ class Build_Index extends Database{
         $this->options  = $args[2];
         $this->event    = new Functions();
 
-        $base_dir  = "";
-        $base_dir .= "http://";
-        $base_dir .= $_SERVER["SERVER_NAME"];
-        $base_dir .= "/kogao_template/";
-
         $this->settings = [
-            "base_dir"          => $base_dir,
             "title"             => $this->page_title,
             "version_code"      => version_code,
             "theme_color"       => theme_color,
