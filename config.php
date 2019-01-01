@@ -14,6 +14,9 @@ setlocale(LC_TIME, "de_DE.UTF-8");
 error_reporting(E_ERROR);
 ini_set("display_errors", 0);
 
+#@ compressed js Mode
+define("js_functions", 1);
+
 #@ database config
 define("database_used", true);
 define("database_host", 'localhost');
@@ -37,7 +40,6 @@ define("facebook_app_id", "730606926996290");
 #@ Javascript Modules
 define("js_jQuery", 1);
 define("js_jrange", 0);
-define("js_functions", 0);
 
 #@ Meta Tags
 define("facebook", false);

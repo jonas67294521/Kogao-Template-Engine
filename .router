@@ -1,5 +1,6 @@
 {
   "1" : { "page" : "Home_Index", "url" : [ "/", "/home", "/index.php", "/profile/(.*)/" ], "method" : "get" },
   "2" : { "page" : "Test_Index", "url" : [ "/test" ], "method" : "get" },
-  "3" : { "page" : "BrowserSupport_Index", "url" : [ "/supported-browsers" ], "method" : "get" }
+  "3" : { "page" : "BrowserSupport_Index", "url" : [ "/supported-browsers" ], "method" : "get" },
+  "4" : { "page" : "Build_Index", "url" : [ "/build" ], "method" : "get" }
 }

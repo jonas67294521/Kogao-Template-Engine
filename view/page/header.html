@@ -19,11 +19,18 @@
     <meta name="robots" content="index,follow" />
 
     <link rel="stylesheet" href="view.php?p=style.scss&v={$version_code}#" media="screen">
-    <if case="$js_jQuery"><script type="text/javascript" src="view/assets/js/jquery.js#"></script></if>
-    <if case="$js_jRange"><script type="text/javascript" src="view/assets/js/jrange.js#"></script></if>
-    <if case="$js_functions"><script type="text/javascript" src="view/assets/js/functions.js#"></script></if>
 
-    <!-- @bigpipe -->
+    <if case="isset($facebook_app_id)"><script>var facebook_api_id = "{$facebook_app_id}";</script><else><script>var facebook_app_id = "";</script></else></if>
+
+    <if case="$js_functions == 1">
+    <script type="text/javascript" src="view/assets/dist/core.js#"></script>
+        <else>
+            <if case="$js_jQuery"><script type="text/javascript" src="view/assets/js/jquery.js#"></script></if>
+            <if case="$js_jRange"><script type="text/javascript" src="view/assets/js/jrange.js#"></script></if>
+            <if case="$js_functions"><script type="text/javascript" src="view/assets/js/functions.js#"></script></if>
+        </else>
+    </if>
+
     <script type="text/javascript" src="view/assets/js/bigpipe/index.js#"></script>
 
 </head>

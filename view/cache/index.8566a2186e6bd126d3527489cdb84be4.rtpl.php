@@ -1,0 +1,2 @@
+<?php if(!class_exists('raintpl')){exit;}?><?php $tpl = new RainTPL;$tpl->assign( $this->var );$tpl->draw( "page/header" );?><div id="id_40262237f24eb201d68de63c6f1241e9"></div><script id="id_40262237f24eb201d68de63c6f1241e9_1">BigPipe.onArrive({"innerHTML":"","id":"id_40262237f24eb201d68de63c6f1241e9","css_files":[],"js_files":[],"js_code":"","is_last":true});</script>
+<?php $tpl = new RainTPL;$tpl->assign( $this->var );$tpl->draw( "page/footer" );?>
