@@ -29,4 +29,4 @@ $route->pathNotFound(function($path) use($view, $languageArray){
     $initialize->onExecute();
 });
 
-$route->run('/kogao_template');
+$route->run($RoutePath);

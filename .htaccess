@@ -48,7 +48,7 @@ FileETag None
 DirectoryIndex index.php
 
 RewriteEngine on
-RewriteBase /kogao_template/
+RewriteBase /Kogao-Template-Engine/
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

@@ -16,9 +16,14 @@ ini_set("display_errors", 0);
 
 #@ Base Dir
 $protocol = "http://";
-$sub_directory = "kogao_template/";
+$url_parse = $_SERVER['PHP_SELF'];
+$url_parse_path = parse_url($url_parse);
+$url_parse = str_replace("/","",dirname($url_parse_path["path"])) . "/";
+if($url_parse){ $sub_directory = $url_parse; }else{ $sub_directory = ""; }
+if($url_parse){ $RoutePath = dirname($url_parse_path["path"]); }else{ $RoutePath = "/"; }
 
 $base_href = $protocol . $_SERVER["SERVER_NAME"] . "/" . $sub_directory;
+
 define("base_href", $base_href);
 define("sub_folder", $sub_directory);
 define("http_protocol", $protocol);
