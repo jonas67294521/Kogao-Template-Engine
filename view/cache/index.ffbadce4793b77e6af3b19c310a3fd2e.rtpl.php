@@ -3,6 +3,43 @@
 <div id="id_b068931cc450442b63f5b3d276ea4297"></div><script id="id_b068931cc450442b63f5b3d276ea4297_1">BigPipe.onArrive({"innerHTML":"","id":"id_b068931cc450442b63f5b3d276ea4297","css_files":[],"js_files":[],"js_code":"","is_last":true});</script>
 
 
-Hi
+<div style="float:left; width: 100%; padding: 30px; font-weight: 600; font-size: 24px">
+    Button
+</div>
+<div style="float:left; width: 100%; padding: 0 30px">
+
+    <div class="btn btn--red btn--sm">btn btn--red</div>
+    <div class="btn btn--green btn--sm">btn btn--green</div>
+    <div class="btn btn--yellow btn--sm">btn btn--yellow</div>
+    <div class="btn btn--blue btn--sm">btn btn--blue</div>
+    <div class="btn btn--vdgrey btn--sm">btn btn--vdgrey</div>
+    <div class="btn btn--orange btn--sm">btn btn--orange</div>
+    <div class="btn btn--aqua btn--sm">btn btn--aqua</div>
+    <div class="btn btn--aqua-blue btn--sm">btn btn--aqua-blue</div>
+    <div class="btn btn--dorange btn--sm">btn btn--dorange</div>
+    <div class="btn btn--yandex btn--sm">btn btn--yandex</div>
+    <div class="btn btn--vk btn--sm">btn btn--vk</div>
+    <div class="btn btn--sky btn--sm">btn btn--sky</div>
+    <div class="btn btn--twitter btn--sm">btn btn--twitter</div>
+    <div class="btn btn--facebook btn--sm">btn btn--facebook</div>
+    <div class="btn btn--transparent btn--sm">btn btn--transparent</div>
+    <div class="btn btn--pink btn--sm">btn btn--pink</div>
+    <div class="btn btn--odnoklassniki btn--sm">btn btn--odnoklassniki</div>
+    <div class="btn btn--linkedin btn--sm">btn btn--linkedin</div>
+    <div class="btn btn--lime btn--sm">btn btn--lime</div>
+    <div class="btn btn--lblue btn--sm">btn btn--lblue</div>
+    <div class="btn btn--laguna btn--sm">btn btn--laguna</div>
+    <div class="btn btn--instagram btn--sm">btn btn--instagram</div>
+    <div class="btn btn--google btn--sm">btn btn--google</div>
+    <div class="btn btn--gold btn--sm">btn btn--gold</div>
+    <div class="btn btn--white btn--sm btn-normal">btn btn--white</div>
+
+    <br>
+    <code>
+        btn--sm = Small<br>
+        btn--xsm = Very Small
+    </code>
+
+</div>
 
 <?php $tpl = new RainTPL;$tpl->assign( $this->var );$tpl->draw( "page/footer" );?>
